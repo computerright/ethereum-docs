@@ -167,3 +167,8 @@ get the address of the last miner who mined a block:
 $ eth.getBlock(eth.blockNumber).miner
 ```
 
+
+```
+geth --datadir privatenetwork --networkid 100 --bootnodes enode://d5ca08c309ce34d5e91337dd244d04446a494762d8af684c0f4c896630118a57c0f4b54d4b6534b437ed3c895ebca88835e7bcefcf9edcf1704b90c13295e27b@192.168.0.42:30303 --unlock 0xbe74344e18d96d2b0ea67f6cfbdd333b3a1bb853 --rpc --rpcapi "eth,net,web3" --rpccorsdomain '*' --rpcaddr localhost --rpcport 8545
+```
+
