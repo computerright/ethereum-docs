@@ -29,7 +29,7 @@ Then we run the geth console:
 $ geth --datadir privatenetwork console --networkid 100
 ```
 
-## view admin outout
+## view admin output
 
 Now we can dump the admin info for the server - NOTE - make sure you can see the `>` meaning we are in the console:
 
@@ -113,6 +113,13 @@ This is used to created the `geth` command to be run on the other nodes using th
 ```bash
 $ geth --datadir privatenetwork --networkid 100 --bootnodes enode://165ec598b922a9ab8b195a098afe2524fecd8b23edb758ceeca064299d72b4c037f504af84f2cbec494094f23734ca0490dc9e4b437efe92efee261423625e04@192.168.0.35:30303
 ```
+
+You can join multiple nodes by using a CSV value for `--bootnodes`:
+
+```bash
+$ geth --datadir privatenetwork --networkid 100 --bootnodes enode://4325e709245171b5062e5d01ff015988ab58b08910988d0f5b6455402d2878a4fa3112cd0e2b74630de669778355a889821b2f9489d82d99df5770e6b7699abf@192.168.0.69:30303,enode://a6ec0b75d1db77b0f408b5c9e1ec3e1841de4d36951370b3e0913e4c3710a8849a26e2b56f25efa0cf6f89e10b715fa0989bafdeb51a405426f9911a602aa888@192.168.0.43:30303,enode://bdc6fe600013a786c2cb3471e00d7e03351e9433349ebbde13af13b8fe5836e38aa8995c78f33184cd566a0c903ec473b284d69dc1309ab94ea1c579c0ffd8c1@192.168.0.12:30303
+```
+
 
 ## attach to running geth server
 
