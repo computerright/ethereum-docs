@@ -122,6 +122,33 @@ If you have a geth server already running - here is how to attach to it:
 $ geth attach ipc:geth.ipc
 ```
 
+## mining
 
+In the console, create a personal account with:
 
+```bash
+$ personal.newAccount('password')
+```
 
+check your account is here:
+
+```bash
+$ eth.accounts
+```
+
+set your account for mining:
+
+```bash
+$ miner.setEtherbase(eth.accounts[0])
+```
+
+start mining with defined number of threads:
+
+```bash
+$ miner.start(2)
+```
+check hashrate:
+
+```bash
+$ miner.getHashrate()
+```
