@@ -159,3 +159,11 @@ check hashrate:
 ```bash
 $ miner.getHashrate()
 ```
+
+get the address of the last miner who mined a block:
+
+
+```bash
+$ eth.getBlock(eth.blockNumber).miner
+```
+
