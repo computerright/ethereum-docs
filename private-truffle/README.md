@@ -19,7 +19,7 @@ $ cd ~/path/to/private-blockchain
 Start it up with a console and enable rpc (this is how truffle communicates with it)
 
 ```bash
-$ geth --datadir privatenetwork --network 100 console
+$ geth --datadir privatenetwork --networkid 100 console
 ```
 
 Check if a primary account exists
@@ -28,38 +28,61 @@ Check if a primary account exists
 > eth.accounts
 ```
 
-You should see at least one account in the list. The first one is the primary one.
+You should see at least one account in the list. The first one is the primary one. If you see an empty list, as shown below, you need to create one.
 
 ```bash
-> [""]
+> eth.accounts
+[]
 ```
 
-Otherwise create an account
+If you need to, create an account using [personal_newAccount](https://github.com/ethereum/go-ethereum/wiki/Management-APIs#personal_newaccount) providing a passphrase when prompted.
 
 ```bash
-> [""]
+> personal.newAccount()
+Passphrase: 
+Repeat passphrase: 
+"0x2ebc9a285e2d0fe63c4b473993609be8d3a9c67d"
 ```
 
-Make sure the account is unlocked.
+Double check you have a primary account
 
 ```bash
-> [""] 
+> eth.accounts
+["0x2ebc9a285e2d0fe63c4b473993609be8d3a9c67d"]
 ```
 
-Make sure the account has some ether.
+
+Make sure the account is unlocked. (An unlocked account can send transactions).
 
 ```bash
-> [""] 
+> personal.unlockAccount("0x2ebc9a285e2d0fe63c4b473993609be8d3a9c67d")
+Unlock account 0x2ebc9a285e2d0fe63c4b473993609be8d3a9c67d
+Passphrase: 
+true
 ```
 
-Otherwise mine some for a bit
+
+Check if the account has any ether (it won't if you just created it).
 
 ```bash
-> [""] 
+> eth.getBalance("0x2ebc9a285e2d0fe63c4b473993609be8d3a9c67d")
+0
+```
+
+If not, set the address to be the one to receive ether from mining.
+
+```bash
+> miner.setEtherbase("0x2ebc9a285e2d0fe63c4b473993609be8d3a9c67d")
+ 
+```
+Mine some ether for a while
+
+```bash
+> miner.start()
 ```
 
 ```bash
-> [""] 
+> miner.stop()
 ```
 
 That's it for setting up the primary account. Leave geth running.
