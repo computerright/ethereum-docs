@@ -22,8 +22,6 @@ Start it up with a console and enable rpc (this is how truffle communicates with
 $ geth --datadir privatenetwork --networkid 100 --rpc console
 ```
 
-## unlock the primary account
-
 ```bash
 $ personal.unlockAccount(eth.accounts[0])
 ```
