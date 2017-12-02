@@ -39,7 +39,7 @@ $ cd ~/path/to/hello-world/code
 Update the truffle config (note the 'gas' property). 
 ***Clarification needed***
 I think this needs to be enough to cover the cost of the gas for creating the contract but less that the gas limit defined in the genesis block (which for hello-world is 2100000). 
-```json
+```bash
 module.exports = {
   networks: {
     development: {
